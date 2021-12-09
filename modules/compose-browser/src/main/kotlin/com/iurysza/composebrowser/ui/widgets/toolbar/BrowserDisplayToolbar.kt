@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.iurysza.composebrowser.browserui.R
+import com.iurysza.composebrowser.R
 import com.iurysza.composebrowser.ui.theme.BrowserRoundedShape
 import com.iurysza.composebrowser.ui.theme.getSystemThemeIcon
 

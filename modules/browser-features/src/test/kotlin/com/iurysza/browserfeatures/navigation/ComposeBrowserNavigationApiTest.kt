@@ -1,12 +1,13 @@
 package com.iurysza.browserfeatures.navigation
 
-import com.iurysza.composebrowser.core.engine.BrowserDelegate
+import com.iurysza.composebrowser.BrowserDelegate
 import com.iurysza.composebrowser.features.navigation.ComposeBrowserNavigationApi
 import com.iurysza.composebrowser.features.utils.URLUtils
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.string.shouldContain
 import io.mockk.clearAllMocks
 import io.mockk.every
+import io.mockk.just
 import io.mockk.mockk
 import io.mockk.runs
 import io.mockk.slot
@@ -14,7 +15,7 @@ import io.mockk.slot
 class ComposeBrowserNavigationApiTest : BehaviorSpec({
 
   given("loadUrl is called ") {
-    val mockBrowserDelegate = mockk<com.iurysza.composebrowser.core.engine.BrowserDelegate>()
+    val mockBrowserDelegate = mockk<BrowserDelegate>()
     val mockUrlUtil = mockk<URLUtils>()
     val sut = prepareTest(mockBrowserDelegate, mockUrlUtil)
 
@@ -33,7 +34,7 @@ class ComposeBrowserNavigationApiTest : BehaviorSpec({
 })
 
 private fun prepareTest(
-  mockDelegate: com.iurysza.composebrowser.core.engine.BrowserDelegate,
+  mockDelegate: BrowserDelegate,
   urlUtil: URLUtils,
 ): ComposeBrowserNavigationApi {
   clearAllMocks()

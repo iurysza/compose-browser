@@ -38,7 +38,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.iurysza.composebrowser.browserui.R
+import com.iurysza.composebrowser.R
 import com.iurysza.composebrowser.ui.theme.BrowserRoundedShape
 import com.iurysza.composebrowser.ui.theme.Green
 

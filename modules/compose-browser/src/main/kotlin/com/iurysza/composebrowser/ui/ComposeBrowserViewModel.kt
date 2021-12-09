@@ -1,7 +1,7 @@
 package com.iurysza.composebrowser.ui
 
 import androidx.lifecycle.ViewModel
-import com.iurysza.composebrowser.core.engine.BrowserDelegate
+import com.iurysza.composebrowser.BrowserDelegate
 import com.iurysza.composebrowser.features.navigation.BrowserNavigationApi
 import com.iurysza.composebrowser.features.navigation.BrowserNavigationListener
 import com.iurysza.composebrowser.features.utils.URLUtils
@@ -90,7 +90,7 @@ class ComposeBrowserViewModel(
 
   fun onGoForwardClicked() = navigationApi.goForward()
 
-  fun setDelegate(browserDelegate: com.iurysza.composebrowser.core.engine.BrowserDelegate) {
+  fun setDelegate(browserDelegate: BrowserDelegate) {
     navigationApi.setBrowserDelegate(browserDelegate)
   }
 

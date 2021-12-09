@@ -1,6 +1,6 @@
 package com.iurysza.composebrowser.features.navigation
 
-import com.iurysza.composebrowser.core.engine.BrowserDelegate
+import com.iurysza.composebrowser.BrowserDelegate
 import com.iurysza.composebrowser.features.utils.URLUtils
 import com.iurysza.composebrowser.features.utils.URLUtilsImpl
 
@@ -8,10 +8,10 @@ class ComposeBrowserNavigationApi(
   private val urlUtil: URLUtils = URLUtilsImpl(),
 ) : BrowserNavigationApi, BrowserNavigationListener {
 
-  private var browserDelegate: com.iurysza.composebrowser.core.engine.BrowserDelegate? = null
+  private var browserDelegate: BrowserDelegate? = null
   private var listeners = emptyList<BrowserNavigationListener>()
 
-  override fun setBrowserDelegate(browserDelegate: com.iurysza.composebrowser.core.engine.BrowserDelegate) {
+  override fun setBrowserDelegate(browserDelegate: BrowserDelegate) {
     this.browserDelegate = browserDelegate
     this.browserDelegate?.setNavigationListener(this)
   }

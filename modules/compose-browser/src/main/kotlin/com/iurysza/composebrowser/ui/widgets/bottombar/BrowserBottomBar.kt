@@ -8,7 +8,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import com.iurysza.composebrowser.browserui.R
+import com.iurysza.composebrowser.R
 import com.iurysza.composebrowser.ui.theme.getSystemThemeIcon
 
 @Composable

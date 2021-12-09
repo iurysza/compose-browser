@@ -1,12 +1,13 @@
 package com.iurysza.composebrowser.features.navigation
 
-import com.iurysza.composebrowser.core.engine.BrowserDelegate
+import com.iurysza.composebrowser.BrowserDelegate
+
 
 /**
  *  Exposes the navigation API to consumers
  */
 interface BrowserNavigationApi {
-  fun setBrowserDelegate(browserDelegate: com.iurysza.composebrowser.core.engine.BrowserDelegate)
+  fun setBrowserDelegate(browserDelegate: BrowserDelegate)
   fun addNavigationListener(browserNavigationListener: BrowserNavigationListener)
   fun reload()
   fun stop()

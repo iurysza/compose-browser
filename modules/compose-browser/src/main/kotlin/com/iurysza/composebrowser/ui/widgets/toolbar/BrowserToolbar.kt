@@ -4,7 +4,7 @@ import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import com.iurysza.composebrowser.browserui.R
+import com.iurysza.composebrowser.R
 
 /**
  * A toolbar for browsers.
