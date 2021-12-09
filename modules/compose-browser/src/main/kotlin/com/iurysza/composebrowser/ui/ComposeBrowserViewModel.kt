@@ -1,15 +1,15 @@
 package com.iurysza.composebrowser.ui
 
 import androidx.lifecycle.ViewModel
-import com.iurysza.composebrowser.browserfeatures.BrowserDelegate
-import com.iurysza.composebrowser.browserfeatures.navigation.BrowserNavigationApi
-import com.iurysza.composebrowser.browserfeatures.navigation.BrowserNavigationListener
-import com.iurysza.composebrowser.browserfeatures.utils.URLUtils
-import com.iurysza.composebrowser.browserfeatures.utils.URLUtilsImpl
-import com.iurysza.composebrowser.browserui.widgets.bottombar.BrowserBottomBarState
-import com.iurysza.composebrowser.browserui.widgets.progress.BrowserProgressState
-import com.iurysza.composebrowser.browserui.widgets.toolbar.BrowserToolbarState
-import com.iurysza.composebrowser.browserui.widgets.toolbar.DisplayUrl
+import com.iurysza.composebrowser.core.engine.BrowserDelegate
+import com.iurysza.composebrowser.features.navigation.BrowserNavigationApi
+import com.iurysza.composebrowser.features.navigation.BrowserNavigationListener
+import com.iurysza.composebrowser.features.utils.URLUtils
+import com.iurysza.composebrowser.features.utils.URLUtilsImpl
+import com.iurysza.composebrowser.ui.widgets.bottombar.BrowserBottomBarState
+import com.iurysza.composebrowser.ui.widgets.progress.BrowserProgressState
+import com.iurysza.composebrowser.ui.widgets.toolbar.BrowserToolbarState
+import com.iurysza.composebrowser.ui.widgets.toolbar.DisplayUrl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -90,7 +90,7 @@ class ComposeBrowserViewModel(
 
   fun onGoForwardClicked() = navigationApi.goForward()
 
-  fun setDelegate(browserDelegate: BrowserDelegate) {
+  fun setDelegate(browserDelegate: com.iurysza.composebrowser.core.engine.BrowserDelegate) {
     navigationApi.setBrowserDelegate(browserDelegate)
   }
 

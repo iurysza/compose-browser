@@ -1,7 +1,7 @@
 package com.iurysza.composebrowser
 
-import com.iurysza.composebrowser.browserfeatures.navigation.ComposeBrowserNavigationApi
-import com.iurysza.composebrowser.browserfeatures.utils.URLUtils
+import com.iurysza.composebrowser.features.navigation.ComposeBrowserNavigationApi
+import com.iurysza.composebrowser.features.utils.URLUtils
 import com.iurysza.composebrowser.ui.ComposeBrowserViewModel
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.comparables.shouldBeGreaterThan

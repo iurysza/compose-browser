@@ -4,8 +4,8 @@ import android.content.res.Configuration
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.iurysza.composebrowser.ComposeBrowserApi
-import com.iurysza.composebrowser.browserfeatures.navigation.ComposeBrowserNavigationApi
-import com.iurysza.composebrowser.browserui.theme.BrowserTheme
+import com.iurysza.composebrowser.features.navigation.ComposeBrowserNavigationApi
+import com.iurysza.composebrowser.ui.theme.BrowserTheme
 
 @Composable
 @Preview(

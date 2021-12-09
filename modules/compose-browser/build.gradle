@@ -8,7 +8,7 @@ android {
 }
 dependencies {
   api project(path: ':modules:browser-features')
-  implementation project(path: ':modules:browser-ui')
+  implementation project(path: ':modules:browser-core')
 
   implementation "androidx.appcompat:appcompat:$appcompatVersion"
   implementation "androidx.activity:activity-compose:$appcompatVersion"

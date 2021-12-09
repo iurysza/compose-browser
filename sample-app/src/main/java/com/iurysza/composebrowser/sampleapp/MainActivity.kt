@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.iurysza.composebrowser.ComposeBrowserApi
-import com.iurysza.composebrowser.browserfeatures.navigation.BrowserNavigationListener
+import com.iurysza.composebrowser.features.navigation.BrowserNavigationListener
 
 private const val TAG = "sample-app"
 

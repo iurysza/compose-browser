@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import com.iurysza.composebrowser.ComposeBrowserApi
-import com.iurysza.composebrowser.browserui.theme.BrowserTheme
+import com.iurysza.composebrowser.ui.theme.BrowserTheme
 
 internal class ComposeBrowserActivity : AppCompatActivity() {
 

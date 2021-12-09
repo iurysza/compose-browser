@@ -1,7 +1,7 @@
 package com.iurysza.composebrowser
 
 import android.content.Context
-import com.iurysza.composebrowser.browserfeatures.navigation.BrowserNavigationApi
+import com.iurysza.composebrowser.features.navigation.BrowserNavigationApi
 import com.iurysza.composebrowser.ui.ComposeBrowserActivity
 
 class ComposeBrowserApi internal constructor(

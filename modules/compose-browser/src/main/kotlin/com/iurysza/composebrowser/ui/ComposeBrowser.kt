@@ -7,15 +7,15 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
-import com.iurysza.composebrowser.browserui.widgets.ComposableWebView
-import com.iurysza.composebrowser.browserui.widgets.bottombar.BrowserBottomBar
-import com.iurysza.composebrowser.browserui.widgets.progress.BrowserProgress
-import com.iurysza.composebrowser.browserui.widgets.toolbar.BrowserToolbar
+import com.iurysza.composebrowser.ui.widgets.ComposableWebView
+import com.iurysza.composebrowser.ui.widgets.bottombar.BrowserBottomBar
+import com.iurysza.composebrowser.ui.widgets.progress.BrowserProgress
+import com.iurysza.composebrowser.ui.widgets.toolbar.BrowserToolbar
 
 @Composable
 fun ComposeBrowser(
-    browserViewModel: ComposeBrowserViewModel,
-    onBrowserStarted: () -> Unit,
+  browserViewModel: ComposeBrowserViewModel,
+  onBrowserStarted: () -> Unit,
 ) {
 
   val activity = (LocalContext.current as? Activity)
