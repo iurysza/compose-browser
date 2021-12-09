@@ -1,0 +1,68 @@
+allprojects {
+  apply plugin: 'jacoco'
+  jacoco {
+    toolVersion = jacocoVersion
+  }
+}
+
+subprojects {
+  if (it.name == 'sample-app') return
+
+  afterEvaluate {
+    def coverageSourceDirs = [
+      "src/main/java",
+      "src/main/kotlin",
+      "src/debug/java"
+    ]
+
+    def javaDebugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug")
+    def kotlinDebugTree = fileTree(dir: "${buildDir}/tmp/kotlin-classes/debug")
+
+    task jacocoTestCoverageVerification(type: JacocoCoverageVerification) {
+      group = "verification"
+      violationRules {
+        rule {
+          element = "CLASS"
+          limit {
+            counter = "BRANCH"
+            value = "COVEREDRATIO"
+            minimum = 0.70
+          }
+          limit {
+            counter = "LINE"
+            value = "COVEREDRATIO"
+            minimum = 0.70
+          }
+        }
+      }
+    }
+
+    task codeCoverageReport(type: JacocoReport) {
+      group = "verification"
+      description = "Creates Jacoco test coverage reports of unit tests."
+
+      sourceDirectories.from = files(coverageSourceDirs)
+      additionalSourceDirs.from = files(coverageSourceDirs)
+      classDirectories.from = files([javaDebugTree], [kotlinDebugTree])
+      executionData.from = files("$buildDir/jacoco/testDebugUnitTest.exec")
+
+      reports {
+        xml.enabled = true
+        html.enabled = true
+      }
+
+      doLast {
+        println "Wrote HTML report to file://${buildDir.path}/reports/jacoco/html/index.html"
+        println "Wrote XML report to file://${buildDir.path}/reports/jacoco/report.xml"
+      }
+    }
+
+    jacocoTestCoverageVerification.dependsOn codeCoverageReport
+
+    tasks.withType(Test) {
+      testLogging {
+        events "passed", "skipped", "failed"
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+buildscript {
+  repositories {
+    google()
+    mavenCentral()
+  }
+  dependencies {
+    classpath "com.android.tools.build:gradle:$androidGradlePluginVersion"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
+
+apply from: './quality/code-coverage.gradle'
+apply from: './quality/detekt.gradle'
+apply from: './quality/ktlint.gradle'

@@ -1,0 +1,16 @@
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    google()
+    mavenCentral()
+  }
+}
+
+rootProject.name = "compose-browser-project"
+include(
+  ':sample-app',
+  ':modules:compose-browser',
+  ':modules:browser-features',
+  ':modules:browser-ui',
+  ':modules:browser-core',
+)

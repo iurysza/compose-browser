@@ -1,0 +1,5 @@
+dependencies {
+  implementation project(path: ':modules:browser-features')
+
+  implementation "androidx.appcompat:appcompat:$appcompatVersion"
+}

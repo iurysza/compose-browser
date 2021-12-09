@@ -1,0 +1,19 @@
+android {
+  buildFeatures {
+    compose true
+  }
+  composeOptions {
+    kotlinCompilerExtensionVersion composeVersion
+  }
+}
+dependencies {
+  implementation project(path: ':modules:browser-core')
+  implementation project(path: ':modules:browser-features')
+
+  implementation "androidx.appcompat:appcompat:$appcompatVersion"
+  implementation "androidx.activity:activity-compose:$appcompatVersion"
+  implementation "androidx.compose.foundation:foundation-layout:$composeVersion"
+  implementation "androidx.compose.material:material:$composeVersion"
+  implementation "androidx.compose.material:material-icons-core:$composeVersion"
+  implementation "androidx.compose.ui:ui-tooling:$composeVersion"
+}

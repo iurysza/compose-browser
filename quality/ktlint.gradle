@@ -1,0 +1,56 @@
+configurations { ktlint }
+dependencies {
+    ktlint("com.pinterest:ktlint:$ktlintVersion") {
+        attributes {
+            attribute(Bundling.BUNDLING_ATTRIBUTE, getObjects().named(Bundling, Bundling.EXTERNAL))
+        }
+    }
+}
+
+task ktlintCi(type: JavaExec, group: "verification") {
+    description = "Run Kotlin linter on changed files."
+    main = "com.pinterest.ktlint.Main"
+    classpath = configurations.ktlint
+    def ignoredFiles = "!**/src/**/*Test.kt"
+    def changedFilesList = getDiffedFilesFromBranch("main")
+    if (changedFilesList.isEmpty()) ignoredFiles = "!**.kt"
+    doFirst {
+        if (changedFilesList.isEmpty()) {
+            println("No kotlin files changed! Skipping ktlintCi task")
+        } else {
+            println("Running ktlint on the changed files:")
+            changedFilesList.each { println("$projectDir/$it ") }
+        }
+    }
+
+    def reportDir = "${rootProject.buildDir}/reports/ktlint"
+    def params = [
+            *changedFilesList,
+            ignoredFiles,
+            "-F", //auto correct
+            "--relative",
+            "--reporter=checkstyle,output=$reportDir/ktlint-checkstyle.xml",
+            "--reporter=html,output=$reportDir/report.html"
+    ]
+    args(params)
+}
+
+private static List<String> getDiffedFilesFromBranch(String branch) {
+    def cmd = "git diff --diff-filter=d --name-only origin/$branch --relative | grep '\\.kt\\?\$'"
+    def outputStream = new ByteArrayOutputStream()
+    ['sh', '-c', cmd].execute().waitForProcessOutput(outputStream, System.err)
+
+    return mapOutputToStringList(outputStream)
+}
+
+// get double quoted, comma separated list of files
+private static List<String> mapOutputToStringList(ByteArrayOutputStream outputStream) {
+    def fileList = outputStream.toString()
+            .split("\\.kt\n")
+            .collect { "${it}.kt" }
+    if (fileList.size() == 1 && fileList.first() == ".kt") {
+        return []
+    } else {
+        return fileList
+    }
+}
